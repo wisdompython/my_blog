@@ -2,6 +2,9 @@
 __pycache__/
 myblog/__pycache__
 users/__pycache__
+blog/media
+blog/migrations/__pycache__
+db.sqlite3
 *.py[cod]
 *$py.class
 
