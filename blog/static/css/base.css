@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+/* nav bar and page styling */
+*{
+    margin: 0;
+	padding: 0;
+}
+
+
+body{
+    font-family: 'Quicksand', sans-serif;
+}
+
+
+li{
+    text-decoration: none;
+}
+
+a{
+    text-decoration: none;
+    color: rgb(86, 87, 87);
+
+}
+header{
+    height: 30px;
+    position: fixed;
+    background:#CB6E17;
+    width: 100%;
+    padding: 1em 0;
+    z-index: 99;
+    transition: all 0.7s ease-in;
+
+}
+
+
+.nav-container{
+    width: 90%;
+    margin: 0 auto;
+}
+.Navbar{
+    position: absolute;
+    top: 100%;
+    right: 0;
+    border-color:  rgb(16, 2, 31);
+    background:#464655;
+    height: 0;
+    overflow: hidden;
+  
+}
+
+.Navbar--open{
+    height:auto;
+}
+
+
+.nav-items li{
+    border-bottom: 1px solid #575757;
+}
+
+.nav-items-icon{
+    display: inline-block;
+    text-align: right;
+    margin-right: 1em;
+    width: 2em;
+    color:rgb(249, 246, 246);
+
+}
+.nav-items li:last-child{
+    border: none ;
+}
+
+.nav-items a{
+    color: rgb(249, 246, 246);
+    display: block;
+    padding: 2em 4em;
+}
+
+.nav-items a:hover, .nav-items a:focus{
+    background: #e48363;
+    color: #464655;
+}
+/* hamburger menu for smaller screens */
+
+
+.menu-toggle{
+    padding: 1em;
+    position: absolute;
+    right: .5em;
+    top: 0.7rem;
+    cursor: pointer;
+}
+.hamburger-menu,
+.hamburger-menu::before,
+.hamburger-menu::after {
+    content: '';
+    display: block;
+    background: #EBEBD3;
+    height: 3px; 
+    width: 1.5em;
+    border-radius: 3px;
+    transition: all ease-in-out 500ms;
+}
+.hamburger-menu::before {
+    transform: translateY(-6px);
+}
+.open .hamburger-menu{
+    transform: rotate(45deg);
+}
+.hamburger-menu::after {
+    transform: translateY(3px);
+}
+.open .hamburger-menu::after{
+    opacity: 0;
+}
+.open .hamburger-menu:before{
+    transform: rotate(95deg);
+}
+
+
+@media(min-width:600px){
+    /* nav bar styling for larger screens */
+    .menu-toggle{
+        display: none;
+    }
+    
+    .Navbar{
+        float: right;
+        height: auto;
+        position: relative;
+        background: transparent;
+    }
+    .nav-items li{
+        
+        border: none;
+        display: inline-block
+    }
+    .nav-items a{
+        font-size:px;
+        padding: 0;
+        margin-left: 1em;
+    }
+    .nav-items-icon{
+        display: none;
+    }
+    
+}
+    
+
+
+@media(min-width: 900px){
+    /* nav barstyling for laptops  */
+    .menu-toggle{
+        display: none;
+    }
+    
+    .Navbar{
+        float: right;
+        height: auto;
+        right: 30%;
+        position: relative;
+        background: transparent;
+    }
+    .nav-items li{
+        border: none;
+        display: inline-block
+    }
+    .nav-items a{
+        padding: 0;
+        margin-left: 1em;
+    }
+    .nav-items-icon{
+        display: none;
+    }
+    
+}
+    

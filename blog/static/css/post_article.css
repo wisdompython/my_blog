@@ -1,0 +1,117 @@
+/* styling for post detail page, and comment section  */
+ .post-container{
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+    width: 80%;
+}
+.post-content-container{
+    margin-top: 8%;    
+}
+
+.post-title{
+    margin: 0 auto;
+    width: fit-content;
+    font-size: 100px;
+    font-weight: bolder;
+}
+.post-content{
+    white-space:wrap;
+    margin: 0 auto;
+    width: 80%;
+    padding: 10px;
+    font-size: 20px;
+    word-spacing: 2px;
+}
+.comment-container{
+    margin-top: 30px;
+    margin-left: 10%;
+}
+.comment-form{
+    margin-top: 39px;
+    margin-bottom: 5%;
+}
+textarea {
+    overflow: hidden;
+    resize: none;
+    padding: 15px;
+    writing-mode: horizontal-tb !important;
+    font-style: inherit;
+    font-family: inherit;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 10px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    min-height:70px;
+    appearance: auto;
+    -webkit-rtl-ordering: logical;
+    resize: auto;
+    cursor: text;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    border: 1px gray solid;
+    border-radius: 20px;
+    background-color: field;
+}
+.form-group{
+    margin: 0 auto;
+}
+.user-comments-profile{
+    display: flex;
+    width: 50%;
+    padding: 10px;
+    margin-bottom: 2px;
+}
+.user-comments-profile h2{
+    padding-left: 10px;
+    font-size: 20px;
+}
+.user-comments{
+    margin-bottom: 10px;
+}
+.user-comments p{
+    padding-left: 10px;
+
+}
+.user-comments-profile h6{
+    padding: 5px;
+    margin-left: 10px;
+    margin-top: 5px;
+    background: #858482;
+    border-radius: 20px;
+    color: white;
+}
+.user-comments-profile img{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+::placeholder{
+    font: inherit;
+    font-size: 15px;
+    padding: 1px;
+}   
+.submit-comment{
+    background: gray;
+    color:azure;
+    padding: 5px;
+}
+
+.child-comments{
+    margin-left: 48px;
+}
+.no-display{
+    display: none;
+}
+.comment-content{
+    margin-left: 1%;
+}
+
+.reply-button{
+    width: 30px;
+    font-size:20px;
+    margin-left: 15px;
+    background: none;
+}

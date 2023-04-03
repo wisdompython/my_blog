@@ -1,0 +1,64 @@
+{% extends 'blog/base.html '%}
+{% load static %}
+{% block content%}
+
+<script type="text/javascript" src="{% static 'scripts/home.js'%}" defer></script>
+    <div class="homepage">
+        <div class="home-header">
+            <h2>Explore A Whole World of Amazing Tales</h2>
+            <p>Create Amazing Content</p>
+        </div>
+        <div class="title">
+            <a  href="#">Share Your Experience</a>
+        </div>    
+       
+    </div>
+
+    <section class="blog">
+        <div class="section-header"><b><p>Our Stories</p></b></div>
+        <div class="search-group">
+            <form class="form-group" action=" /search_results/" method="GET">
+                <input class="input-group" type= "text" placeholder="Search" name="search-area" value="{{search_input}}">
+                <button class="search-button">Submit</button>
+            </form>
+        </div>
+        <div class="blogpost-container">
+            
+            <div class="blogposts" id="blog-content">
+                
+            {% for post in post %}
+                <div class="post">
+
+                    <img id="img-src" src="{{post.image.url}} " image-url="{{post.image.url}}" alt="">
+                    
+                    <p><strong>{{post.title}}</strong></p>
+                    <!-- <div class="post-category">
+                        <form action=" /category_search/" method="GET">
+                            {% for category in post.category.all%}
+                                <button class="category-button" type="submit" name="search-tag" value="{{category.id}}">
+                                    <h3>{{category}}</h3>
+                                </button>
+                            {%endfor%}
+                        </form>
+                    </div> -->
+                    <a id="post-detail-link" href="{% url 'detail' post.id %}" detail-url="{% url 'detail' post.id %}"><h2>{{post.summary}}</h2></a>
+                </div>
+            {%endfor%}
+            
+            </div>
+        </div>
+        <div class="add-more" data-url='{% url "load_more" %}'id="add-btn">
+            <button type="button" class="more-content">load more</button>
+        </div>
+        <div class="alert no-more-data" role="alert" id="alert">
+            No more post to load!!!
+        </div>
+        {{total_post|json_script:"json-total"}}
+       
+        
+    </section>
+    
+        
+    
+    
+{% endblock%} 

@@ -1,0 +1,21 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/form.css'%}">
+<div class="newpost">
+    
+    <form class="form-group" method="post">
+        <h2>Add a New post<i class="fa fa-plus form-group-icon"></i></h2> 
+        {% csrf_token %}
+        {{form.title}}
+        {{form.summary}}
+        {{form.media}}
+        {{form.post}}
+        {{form.image}}
+        <input type="submit" class="post-button" value="post">
+        
+    </form>
+</div>
+
+{% endblock%}

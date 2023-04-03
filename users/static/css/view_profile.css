@@ -1,0 +1,146 @@
+@media(min-width:300px) {
+    .user-profile{  
+        overflow: hidden;
+        width: 80%;    
+        margin: 0 auto; 
+    }
+    .user-details{
+        margin-top: 30%;
+        display: flex;
+    
+    }
+    .user-name{
+        padding-left: 13px;
+        padding-top: 1px;
+        font-size: 15px;
+       
+    }
+    
+    .user-image img{
+        margin-left: 10px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+    }
+    .user-bio-header{
+        margin-top: 5%;
+        border-bottom: 2px rgb(196, 194, 194) solid;
+        margin-bottom: 2%;
+        padding-bottom: 2%;
+    }
+    .user-bio{
+        font-size: 10px;
+        margin-top: 6%;
+        word-spacing:6px;
+    }
+    
+    .user-post-container{
+        margin-top: 5%;
+    
+    }
+    .user-post{
+        width: 95%;
+        padding-top: 1%;
+        padding-bottom: 3%;
+        border-top: 2px rgb(196, 194, 194) solid;
+        
+    }
+    .user-post p{
+        font-size: 13px;
+    }
+    .user-post-header{
+        display: flex;
+        padding-top: 2%;
+        padding-bottom: 2%;
+    }
+    .user-post-header h2{
+        padding-top: 1%;
+        padding-left: 3%;
+        font-size: 15px;
+    }
+    .user-post-header img{
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+    }
+    .category-button{
+        border-radius:15px ;
+        padding: 1%;
+        display: inline-block;
+        color: rgb(191, 118, 23);
+        font-size: 10px;
+        margin-top: 3%;
+    }
+    
+}
+@media(min-width:900px){
+    .user-profile{  
+        overflow: hidden;
+        width: 70%;    
+        margin: 0 auto; 
+    }
+    .user-details{
+        margin-top: 10%;
+        display: flex;
+
+    }
+    .user-name{
+        padding-left: 20px;
+        padding-top: 10px;
+        font-size: 25px;
+    
+    }
+    .user-post p{
+        font-size: 17px;
+    }
+
+    .user-image img{
+        margin-left: 20px;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+    }
+    .user-bio-header{
+        margin-top: 5%;
+        border-bottom: 2px rgb(196, 194, 194) solid;
+        margin-bottom: 2%;
+        padding-bottom: 2%;
+    }
+    .user-bio{
+        margin-top: 6%;
+        word-spacing:6px;
+    }
+    .user-post-container{
+        margin-top: 10%;
+    }
+
+    .user-post{
+        width: 70%;
+        padding-top: 1%;
+        padding-bottom: 3%;
+        border-top: 2px rgb(196, 194, 194) solid;
+        
+    }
+    .user-post-header{
+        display: flex;
+        padding-top: 2%;
+        padding-bottom: 2%;
+    }
+    .user-post-header h2{
+        padding-top: 2%;
+        padding-left: 3%;
+    }
+    .user-post-header img{
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+    }
+    .category-button{
+        border-radius:15px ;
+        padding: 1%;
+        display: inline-block;
+        color: rgb(191, 118, 23);
+        font-size: 15px;
+        margin-top: 3%;
+}
+}

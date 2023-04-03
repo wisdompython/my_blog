@@ -1,0 +1,45 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% load socialaccount %}
+{%block content%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/registration.css'%}">
+</head>
+<body>
+    <div class="form-wrapper-container">
+        <div class="form-wrapper">
+            <h1>Sign Up</h1>
+            <form method="POST">
+                {% csrf_token %}
+                {{form.firstname}} 
+                {{form.lastname}}
+                {{form.username}}
+                {{form.email}}
+                {{form.email.errors}} 
+                {{form.password1}}
+                {{form.password1.errors}}
+                {{form.password2}} 
+                {{form.password2.errors}}
+            <input type="submit" class="submit" value="Signup">
+            </form>
+            
+        </div>
+    </div>
+    
+            
+           
+       
+        
+                
+    
+</body>
+</html>
+{% endblock content%}

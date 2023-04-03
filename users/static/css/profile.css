@@ -1,0 +1,79 @@
+.profile-container{
+    overflow: hidden;
+    width: 70%;
+    position: relative;
+    margin: 0 auto;
+}
+.user-details{
+    margin-top: 10%;
+    display: flex;
+
+}
+.user-name{
+    padding-left: 20px;
+    padding-top: 10px;
+    font-size: 20px;
+   
+}
+
+.user-image img{
+    margin-left: 20px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.profile-update-form{
+    width: 60%;
+    margin: 50px auto;
+
+}
+.profile-update-form h2{
+    margin-bottom: 20px;
+    margin-left: 5%;
+}
+.tox{
+    width: 40%;
+    margin-top: 3%;
+    margin-left: 5%;
+    margin-bottom: 3%;
+    border-radius: 15px;
+    
+}
+.label{
+    margin-left: 7%;
+    margin-bottom: 2%;
+}
+/* .form-group{
+    width: 70%;
+    border: 1px solid rgb(125, 125, 174);
+    outline: none;
+    padding: 12px 20px;
+    margin-top: 10px;
+    margin-bottom:35px;
+    border-radius: 5px;
+} */
+.input-group{
+    width: 85%;
+    border: 1px solid rgb(202, 199, 199);
+    outline: none;
+    margin-bottom: 15px;
+    margin-left: 30px;
+    padding: 12px 20px;
+    border-radius: 25px;
+    background: #e4e4e4;
+}
+.text-editor-container{
+    margin-bottom: 5%;
+}
+.submit{
+    width: fit-content;
+    cursor: pointer;
+    background: gray;
+    border: solid rgb(202, 199, 199);
+    color: azure;
+    margin-top: 25px;
+    padding: 15px 40px;
+    border-radius: 10px;
+    text-transform: uppercase;
+}

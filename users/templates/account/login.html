@@ -1,0 +1,29 @@
+{% extends 'blog/base.html' %}
+{% load socialaccount %}
+{% load static %}
+{% block content%}
+<h1>Google Login</h1>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/registration.css'%}">
+    <div class="form-class">
+        <div class="form-wrapper">
+      
+
+            <h1>Login</h1>
+    
+            
+            <form method="POST" >
+                {% csrf_token %}
+                    {{form.login}}
+                    {{form.password}}
+                    {{form.errors}}
+                    <a style="color: blue;" href="">Forgot password? </a><br>
+                
+            <input type="submit" class="submit" value="Log In">
+            </form>
+            <button style="padding: 20px; margin-bottom: 20px; background:red;border-radius: 10px;"><a style="color: white; font-size: 15px;" href="{% provider_login_url 'google' %}">Login with Google</a></button> <br>
+            <a style="margin-top: 10px; color: blue;" href="{% url 'register' %}">Don't Have an Account? Sign Up here</a>
+        </div>
+    </div>
+   
+{% endblock%}

@@ -1,0 +1,106 @@
+{% extends 'blog/base.html' %}
+{% load static%}
+{% load crispy_forms_tags%}
+{% load mptt_tags%}
+{% block content%}
+
+<link rel="stylesheet" href="{% static 'css/post_article.css'%}">
+    <div class="post-container">
+        <div class="post-content-container">
+            <div class="post-title">{{post_detail.title}}</div>
+            <div class="post-content"><p> {{post_detail.post|safe|linebreaksbr}}</p></div>
+            <div class="comment-container">
+                <h1>Comments({{comments.count}})</h1>
+                <div class="comment-form ">
+                    <form id='commentform'action="" method="POST">
+                        {{form| crispy}}
+                        {{form.errors}}
+                        {% csrf_token %}
+                        <button class="submit-comment">Submit</button>
+                    </form>
+                </div>
+                <div class="user-comments-container">
+                    {% if not comments %}
+
+                    No comments Yet
+                    {% else %}
+
+                        {% for comment in  comments%}
+                            {% if comment.is_parent%}
+                                <div  class="user-comments">
+                                    <div class="user-comments-profile">
+                                        <img src="{{comment.author.profile.image.url}}" alt="">
+                                        <h2>{{comment.author}}</h2>
+                                        <h6>{{comment.created_on}}</h6>
+                                    </div>
+                                    <p class="comment-content">{{comment.body}}</p>
+                                    <button class="reply-button"><i class="fa-regular fa-comment" onclick="ReplyComments('{{comment.id}}')"></i></button>
+                                    <div class="comment-form no-display " id='{{comment.id}}'>
+                                        <form id='{{comment.id}}' action="{% url 'comment-replies' post_detail.id comment.id %}" method="POST">
+                                            {{form| crispy}}
+                                            {{form.errors}}
+                                            {% csrf_token %}
+                                            <button class="submit-comment">Submit</button>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div  class="user-comments child-comments">
+                                    {% for child_comment in comment.children%}
+                                        <div class="user-comments-profile">
+                                            <img src="{{child_comment.author.profile.image.url}}" alt="">
+                                            <h2>{{child_comment.author}}</h2>
+                                            <h6>{{child_comment.created_on}}</h6>
+                                        </div>
+                                        <p class="comment-content">{{child_comment.body}}</p>
+                                {% endfor%}
+                                </div>
+                                
+                            {% endif%}
+                         {% endfor%} 
+                    {%endif%}                
+                </div>
+                
+    
+            </div>
+        </div>
+        
+       
+        
+        
+    </div>
+    <script type="text/javascript" src="{% static 'scripts/comment_replies.js'%}"></script>
+    <script>
+        $('textarea').on('paste input', function () {
+        if ($(this).outerHeight() > this.scrollHeight){
+            $(this).height(1)
+        }
+        while ($(this).outerHeight() < this.scrollHeight + parseFloat($(this).css("borderTopWidth")) + parseFloat($(this).css("borderBottomWidth"))){
+        $(this).height($(this).height() + 1)
+        }
+    }); 
+    function Replies(id){
+    var reply = document.getElementById(id);
+    console.log(reply)
+    reply.insertAdjacentHTML('afterend', 
+                            '<form id="commentform" action="" method="POST">\
+                                <div id="div_id_body" class="form-group"> \
+                                    <div>\
+                                        <textarea name="body" cols="90" rows="4" class="comment-section textarea form-control" id="comment" type="textarea" placeholder=" Add a Comment" required="">\
+                                        </textarea>\
+                                    </div>\
+                                </div>\
+                                        <div id="div_id_parentt" class="form-group"> <div> \
+                                            <select name="parent" class="parent select form-control" id="id_parentt">\
+                                                <option value="' + id + '" selected="' + id + '"></option> \
+                                            </select>\
+                                </div> \
+                                </div>\
+                                {% csrf_token%}\
+                                <button class="submit-comment">Submit</button>\
+                            </form>'
+                            
+                        )};
+    </script>
+    {% endblock %}
+
+    

@@ -1,0 +1,38 @@
+{% extends 'blog/base.html'%}
+{% load static%}
+{% block content%}
+
+<link rel="stylesheet" href="{% static 'css/profile.css'%}">
+<!DOCTYPE html>
+<div class="profile-container">
+    <div class="user-details">
+        <div class="user-image">
+            <img src="{{user.profile.image.url}}" alt="">
+        </div>
+        <div class="user-name">
+            <h2>{{user.username}}</h2>
+            <h4>{{user.email}}</h4> 
+        </div>
+       
+       
+        
+    </div>
+    <div class="profile-update-form">
+        <h2>Profile Info :</h2>
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token%}
+            <h3 class="label">{{user_update.username.label}}</h3>
+            {{user_update.username}} <br>
+            <h3  class="label">{{user_update.email.label}}</h3>
+            {{user_update.email}}
+            {{profile_update.media}}
+            <h3 class="label">{{profile_update.bio.label}}</h3>
+            {{profile_update.bio|safe}}
+            <h3 class="label">{{profile_update.image.label}}</h3>
+            {{profile_update.image}}
+            <input class="submit" type="submit" name="Update" value="Update">
+        </form>
+    </div>
+</div>
+
+{%endblock%}

@@ -1,0 +1,29 @@
+{% extends 'blog/base.html'%}
+{% load static%}
+{% load socialaccount%}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/registration.css'%}">
+    <div class="form-wrapper-container">
+        <div class="form-wrapper">
+            <h1>{% trans "Sign Up" %}</h1>
+
+            <p>{% blocktrans with provider_name=account.get_provider.name site_name=site.name %}You are about to use your {{provider_name}} account to login to
+            {{site_name}}. As a final step, please complete the following form:{% endblocktrans %}</p>
+            
+            <form class="signup" id="signup_form" method="post" action="{% url 'socialaccount_signup' %}">
+                {% csrf_token %}
+                <input class="input-group" type="text" name="username" placeholder="Username" value="{{form.username.value}}">
+                <input class="input-group" type="email" name="email" placeholder="Email" value="{{form.email.value}}">
+                {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}">
+                {% endif %}
+                <button class="submit" type="submit">{% trans "Sign Up" %} &raquo;</button>
+            </form>
+        
+        </div>
+        
+    </div>
+   
+{% endblock %}

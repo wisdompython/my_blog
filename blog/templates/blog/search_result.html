@@ -1,0 +1,45 @@
+{% extends 'blog/base.html'%}
+{% load static%}
+
+{% block content%}
+<link rel="stylesheet" href="{% static 'css/search-results.css'%}">
+<div class="search-results-container">
+    <div class="search-results">
+        <h2> Search Results : </h2>
+        {%for data in data%}
+        <div class="search-list">
+            <div class="profile-redirect">
+                <img src="{{data.author.profile.image.url}}" alt="">
+                <a href="{% url 'show_profile' data.author%}"><strong><p class="author-name">{{data.author}}</p></strong></a>
+            </div>
+            <h2>{{data.title}}</h2>
+            <div class="search-post">
+                <div class="search-post-container">
+                    <div class="search-post-content">
+                        <a href="{% url 'detail' data.id%}"><p>{{data.post|truncatewords:70|safe}}</p></a>
+                    </div>
+                    <div class="search-post-image">
+                        <img src="{{data.image.url}}" alt="">
+                    </div>
+                    
+                    
+                </div>
+                <div class="post-category">
+                    <form action=" /category_search/" method="GET">
+                        {% for category in data.category.all%}
+                            <button class="category-button" type="submit" name="search-tag" value="{{category.id}}">
+                                {{category}}
+                            </button>
+                        {%endfor%}
+                    </form>
+                </div>    
+            </div>
+            
+        </div>
+        {% endfor %}
+        
+    </div>
+   
+</div>
+
+{% endblock %}
